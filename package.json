@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mob_front_end": "node dist/mob_front_end/server/server.mjs"
+    "serve:ssr:mob_front_end": "node dist/mob_front_end/server/server.mjs",
+    "start:staging": "ng serve --configuration=staging",
+    "build:staging": "ng build --configuration=staging",
+    "build:development": "ng build --configuration=development"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "tailwindcss": "^3.4.4",
     "typescript": "~5.4.2"
   }
 }
