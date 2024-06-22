@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-10 pt-3 text-main-green-color h-screen">
+  <div class="w-full flex justify-center">
+    <p class="font-bold text-5xl">𝐌𝐎𝐁</p>
+  </div>
+  <div class="flex flex-col gap-3 px-6 h-screen">
+    @for(item of sidenavItems; track item.id){
+      <button (click)="sideNavActionBtn(item)" class="h-10 flex justify-start pl-10 items-center gap-2 border border-main-green-color py-2 font-semibold rounded-md duration-100 hover:border-r-4 hover:rounded-e-none  hover:font-bold hover:translate-x-2 ">
+        <img [ngSrc]="item.icon" width="20" height="20" [alt]="item.id">
+        <span>{{item.name}}</span>
+      </button>
+    }
+  </div>
+</div>

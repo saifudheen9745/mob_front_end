@@ -29,7 +29,7 @@ export class AdminAuthService implements OnDestroy{
         next: (res) => {
           if(res.success){
             this.localStorageService.setItem('adminToken',res.data);
-            this.router.navigate(['admin/products'])
+            this.router.navigate(['admin/dashboard'])
           }
         },
         error: (err) => {
