@@ -32,7 +32,6 @@ export function authInterceptor(
     setHeaders: req.url.includes('admin') ? headerWithAdminToken : headerWithUserToken
   })
   
-
   return next(excludedUrls.includes(router.url) ? req : clonedReq).pipe(
     tap(
       (response) => {},

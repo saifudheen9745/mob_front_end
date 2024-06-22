@@ -3,6 +3,7 @@ import { adminSidenavItems } from './admin-sidnav.data';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { IAdminSideNavItems } from './admin-sidenav.model';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Component({
   standalone:true,
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class AdminSidenavComponent implements OnInit {
 
   private router = inject(Router);
+  private localStorageService = inject(LocalStorageService);
 
   sidenavItems:IAdminSideNavItems[] = adminSidenavItems;
 
@@ -31,7 +33,8 @@ export class AdminSidenavComponent implements OnInit {
   }
 
   logout(){
-
+    this.localStorageService.clearLocalStorage();
+    this.router.navigate(['/admin/login'])
   }
 
 }

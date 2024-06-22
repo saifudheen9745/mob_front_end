@@ -15,7 +15,7 @@ export class AdminAuthRepository {
   baseUrl = environment.baseUrl
 
   adminDoLogin(loginPayload:IAdminLoginPayload): Observable<IApiResWithData<string>>{
-    return this.http.post<IApiResWithData<string>>(`${this.baseUrl}/admin/login`,loginPayload);
+    return this.http.post<IApiResWithData<string>>(`${this.baseUrl}/admin/auth/login`,loginPayload);
   }
 
 }

@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   standalone:true,
@@ -9,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminCategoriesComponent implements OnInit {
 
   ngOnInit() {
+
   }
 
 }
