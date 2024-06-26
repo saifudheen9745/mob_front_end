@@ -1,3 +1,68 @@
-<div class="">
-
+<div class="h-full flex flex-col gap-5 w-[35rem] py-5">
+  <div class="px-7 flex justify-between items-center">
+    <p class="text-xl font-medium text-gray-500">{{editMode() ? "Edit Product" : "Add Product"}}</p>
+  </div>
+  <div class="flex flex-col items-center gap-3 justify-center py-4">
+    @if(uploadedProductImageUrl.length){
+      <img class="rounded-full h-28 w-28" [src]="uploadedProductImageUrl"  alt="image">
+    }@else {
+      <div class="h-28 w-28 rounded-full bg-gray-300"> 
+      </div>
+    }
+    @if(imageNotFoundError){
+      <small class="text-sm text-red-500">Image is required</small>
+    }
+    <div>
+      <button (click)="uploadImage()" class="h-6 px-2 bg-blue-400 text-white text-sm rounded-md">{{uploadedProductImageUrl.length ? 'Change Image' : "Upload Image"}}</button>
+    </div>
+    <input (change)="uploadFileMethod($event)" #fileUploadLogo type="file" class="hidden">
+  </div>
+  <div class="w-full flex justify-center">
+    <form [formGroup]="addProductForm" class="flex flex-col gap-5" (submit)="submit()">
+      <div class="flex gap-2">
+        <div>
+          <input type="text" formControlName="name" placeholder="Name" class="outline-none w-60 border border-gray-400 rounded-md h-10 p-1">
+          <app-control-message [control]="addProductForm.controls.name"></app-control-message>
+        </div>
+        <div>
+          <input type="text" formControlName="price" placeholder="Price" (keypress)="sharedMethodsService.preventNonNumbers($event)" class="outline-none w-60 border border-gray-400 rounded-md h-10 p-1">
+          <app-control-message [control]="addProductForm.controls.price"></app-control-message>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <div class="formItemNgSelect">
+          <!-- <ng-select
+            formControlName="category"
+            class="w-full outline-none"
+            [items]="adminCategoryService.adminCategoryList()"
+            bindLabel="name"
+            bindValue="id"
+            name="category"
+            placeholder="Category"
+          ></ng-select> -->
+          <ng-select formControlName="category" name="category" placeholder="Category">
+            @for (category of adminCategoryService.adminCategoryList(); track category.id) {
+                <ng-option [value]="category.id">{{category.name}}</ng-option>
+            }
+        </ng-select>
+          <app-control-message [control]="addProductForm.controls.category"></app-control-message>
+        </div>
+        <div>
+          <input type="text" formControlName="quantity" placeholder="Quantity" (keypress)="sharedMethodsService.preventNonNumbers($event)" class="outline-none w-60 border border-gray-400 rounded-md h-10 p-1">
+          <app-control-message [control]="addProductForm.controls.quantity"></app-control-message>
+        </div>
+      </div>
+      <div>
+        <input type="text" formControlName="description" placeholder="Description" class="outline-none w-[490px] border border-gray-400 rounded-md h-10 p-1">
+        <app-control-message [control]="addProductForm.controls.description"></app-control-message>
+      </div>
+      <div class="flex items-center gap-3">
+        <input formControlName="disabled" class="w-4 h-4" type="checkbox" >
+        <span class="text-lg text-gray-400">Disabled</span>
+      </div>
+      <div class="flex justify-center py-5">
+        <input class="w-40 h-10 text-white bg-green-400 rounded-md" type="submit">
+      </div>
+    </form>
+  </div>
 </div>

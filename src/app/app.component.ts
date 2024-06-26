@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
 
   @ViewChild('drawer') drawer: MatSidenav;
 
-  private drawerService = inject(DrawerService);
+  public drawerService = inject(DrawerService);
 
   title = 'mob_front_end';
 
@@ -35,4 +35,5 @@ export class AppComponent implements OnInit{
       }
     });
   }
+
 }

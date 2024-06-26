@@ -1,5 +1,7 @@
 <div class="w-full ">
-  @if(currentDrawerComponent === 'adminAddEditProduct'){
-    <app-admin-add-edit-product></app-admin-add-edit-product>
+  @if(currentDrawerComponent.component === 'adminAddEditProduct'){
+    <app-admin-add-edit-product [editMode]="currentDrawerComponent.isUpdateMode"></app-admin-add-edit-product>
+  }@else if(currentDrawerComponent.component === ''){
+    <app-dummy></app-dummy>
   }
 </div>

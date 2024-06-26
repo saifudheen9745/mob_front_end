@@ -17,4 +17,12 @@ export class AdminProductRepository {
   getAllProducts(): Observable<IApiResWithData<IAdminProductList[]>>{
     return this.http.get<IApiResWithData<IAdminProductList[]>>(`${this.baseUrl}/admin/product`);
   }
+
+  createProduct(data:FormData):Observable<IApiResWithData<IAdminProductList[]>>{
+    return this.http.post<IApiResWithData<IAdminProductList[]>>(`${this.baseUrl}/admin/product`,data);
+  }
+
+  updateProduct(data:FormData):Observable<IApiResWithData<IAdminProductList[]>>{
+    return this.http.put<IApiResWithData<IAdminProductList[]>>(`${this.baseUrl}/admin/product`,data);
+  }
 }
