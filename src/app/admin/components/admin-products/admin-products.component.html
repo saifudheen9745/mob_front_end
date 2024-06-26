@@ -1,3 +1,43 @@
-<p>
-  admin-products works!
-</p>
+<div class="w-full h-full flex flex-col gap-10 bg-primary-background-color p-6">
+  <div>
+    <p class="text-3xl text-primary-text-color">Products</p>
+  </div>
+  <div class="w-full flex flex-col gap-3 items-center">
+    <div class="flex gap-3 w-full justify-end">
+      <input type="text" placeholder="Search" class="w-1/6 h-8 px-3 text-sm outline-none border-2 text-gray-500 border-gray-300 rounded-lg">
+      <button class="bg-green-600 text-white rounded-md px-4 h-8 text-base">New Category</button>
+    </div>
+    <div class="w-full flex flex-col gap-5">
+      <div class="flex justify-evenly w-full bg-gray-600 text-gray-200 font-medium text-lg rounded-md py-1">
+        <div class="w-1/12 flex justify-center items-center">No.</div>
+        <div class="w-1/12 flex justify-center items-center">Image</div>
+        <div class="w-1/12 flex justify-center items-center">Product</div>
+        <div class="w-1/12 flex justify-center items-center">Quantity</div>
+        <div class="w-1/12 flex justify-center items-center">Category</div>
+        <div class="w-1/12 flex justify-center items-center">Price</div>
+        <div class="w-1/12 flex justify-center items-center">Disabled</div>
+        <div class="w-1/12 flex justify-center items-center">Actions</div>
+      </div>
+      <div class="overflow-y-auto flex flex-col gap-3">
+        @for (product of adminProductService.adminProductList(); track product.id; let i = $index) {
+          <div class="flex justify-evenly w-full">
+          <div class="w-1/12 flex justify-center items-center font-semibold text-lg">{{i+1}}</div>
+          <div class="w-1/12 flex justify-center">
+            <img class="w-12 h-12 rounded-full" height="50" width="100" [ngSrc]="product.image" alt="image">
+          </div>
+          <div class="w-1/12 flex text-base justify-center items-center">{{product.name}}</div>
+          <div class="w-1/12 flex text-base justify-center items-center">{{product.quantity}}</div>
+          <div class="w-1/12 flex text-base justify-center items-center">{{product.category}}</div>
+          <div class="w-1/12 flex text-base justify-center items-center">{{product.price}}</div>
+          <div class="w-1/12 flex text-base justify-center items-center font-medium" [ngClass]="{'text-red-500':product.disabled,'text-green-500':!product.disabled}">{{product.disabled ? "Disabled" : "Active"}}</div>
+          <div class="w-1/12 flex justify-center items-center">
+            <div class="flex justify-center gap-3">
+              <button class="border rounded-lg py-2 px-4">Update</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    </div>
+  </div>
+</div>
