@@ -4,10 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        "main-background-color": "var(--main-background-color)",
+        "primary-background-color": "var(--primary-background-color)",
         "secondary-background-color": "var(--secondary-background-color)",
-        "main-green-color": "var(--main-green-color)",
-        "white":"var(--main-white-color)"
+        "primary-green-color": "var(--primary-green-color)",
+        "white":"var(--primary-white-color)",
+        "primary-text-color": "var(--primary-text-color)"
       },
       backgroundImage: {
         "admin-login-background": "url('./assets/images/matrix.avif')"
