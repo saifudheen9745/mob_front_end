@@ -1,5 +1,5 @@
 export interface IAdminCategoryList {
-  id:number;
+  id:string;
   name:string;
   image:string;
 }

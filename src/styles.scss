@@ -7,5 +7,28 @@
 
 @import "./assets/styles/theme.scss";
 
+// Ng-select theme
+@import "@ng-select/ng-select/themes/default.theme.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.formItemNgSelect {
+
+  .ng-select .ng-select-container {
+    @apply border-gray-400;
+    width: 15rem !important;
+    min-height: 2.5rem !important;
+    border-radius: 0.35rem;
+  }
+
+  .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    @apply border-gray-400;
+    box-shadow: none !important;
+  }
+
+  .ng-dropdown-panel-items {
+    max-height: 12rem !important;
+  }
+  
+}

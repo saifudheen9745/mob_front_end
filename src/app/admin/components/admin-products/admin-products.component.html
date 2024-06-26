@@ -23,7 +23,7 @@
           <div class="flex justify-evenly w-full">
           <div class="w-1/12 flex justify-center items-center font-semibold text-lg">{{i+1}}</div>
           <div class="w-1/12 flex justify-center">
-            <img class="w-12 h-12 rounded-full" height="50" width="100" [ngSrc]="product.image" alt="image">
+            <img class="w-12 h-12 rounded-full" [src]="product.image" alt="image">
           </div>
           <div class="w-1/12 flex text-base justify-center items-center">{{product.name}}</div>
           <div class="w-1/12 flex text-base justify-center items-center">{{product.quantity}}</div>
@@ -32,7 +32,7 @@
           <div class="w-1/12 flex text-base justify-center items-center font-medium" [ngClass]="{'text-red-500':product.disabled,'text-green-500':!product.disabled}">{{product.disabled ? "Disabled" : "Active"}}</div>
           <div class="w-1/12 flex justify-center items-center">
             <div class="flex justify-center gap-3">
-              <button class="border rounded-lg py-2 px-4">Update</button>
+              <button (click)="updateProduct(product)" class="border rounded-lg py-2 px-4">Update</button>
             </div>
           </div>
         </div>
