@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="w-full" autosize="">
+  <router-outlet></router-outlet>
+  <mat-drawer #drawer class="h-full w-full" mode="over" position="end">
+    <app-drawer-components></app-drawer-components>
+  </mat-drawer>
+</mat-drawer-container>
