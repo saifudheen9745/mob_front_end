@@ -1,4 +1,4 @@
-<div class="h-full flex flex-col gap-5 w-[35rem] py-5">
+<div class="h-full flex flex-col gap-5 w-full py-5">
   <div class="px-7 flex justify-between items-center">
     <p class="text-xl font-medium text-gray-500">{{editMode() ? "Edit Product" : "Add Product"}}</p>
   </div>
@@ -17,7 +17,7 @@
     </div>
     <input (change)="uploadFileMethod($event)" #fileUploadLogo type="file" class="hidden">
   </div>
-  <div class="w-full flex justify-center">
+  <div class="w-full flex justify-center px-4">
     <form [formGroup]="addProductForm" class="flex flex-col gap-5" (submit)="submit()">
       <div class="flex gap-2">
         <div>
@@ -31,15 +31,6 @@
       </div>
       <div class="flex gap-2">
         <div class="formItemNgSelect">
-          <!-- <ng-select
-            formControlName="category"
-            class="w-full outline-none"
-            [items]="adminCategoryService.adminCategoryList()"
-            bindLabel="name"
-            bindValue="id"
-            name="category"
-            placeholder="Category"
-          ></ng-select> -->
           <ng-select formControlName="category" name="category" placeholder="Category">
             @for (category of adminCategoryService.adminCategoryList(); track category.id) {
                 <ng-option [value]="category.id">{{category.name}}</ng-option>
@@ -60,8 +51,8 @@
         <input formControlName="disabled" class="w-4 h-4" type="checkbox" >
         <span class="text-lg text-gray-400">Disabled</span>
       </div>
-      <div class="flex justify-center py-5">
-        <input class="w-40 h-10 text-white bg-green-400 rounded-md" type="submit">
+      <div class="w-full flex justify-center py-5">
+        <input class="w-full h-10 text-white bg-green-500 rounded-md" type="submit">
       </div>
     </form>
   </div>

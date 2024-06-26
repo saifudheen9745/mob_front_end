@@ -4,7 +4,7 @@
   </div>
   <div class="w-full flex flex-col gap-3 items-center">
     <div class="flex gap-3 w-full justify-end">
-      <input type="text" placeholder="Search" class="w-1/6 h-8 px-3 text-sm outline-none border-2 text-gray-500 border-gray-300 rounded-lg">
+      <input type="text" [(ngModel)]="searchKey" placeholder="Search" class="w-1/6 h-8 px-3 text-sm outline-none border-2 text-gray-500 border-gray-300 rounded-lg">
       <button (click)="createNewProduct()" class="bg-green-600 text-white rounded-md px-4 h-8 text-base">New Product</button>
     </div>
     <div class="w-full flex flex-col gap-5">
@@ -19,7 +19,7 @@
         <div class="w-1/12 flex justify-center items-center">Actions</div>
       </div>
       <div class="overflow-y-auto flex flex-col gap-3">
-        @for (product of adminProductService.adminProductList(); track product.id; let i = $index) {
+        @for (product of adminProductService.adminProductList() | search:searchKey; track product.id; let i = $index) {
           <div class="flex justify-evenly w-full">
           <div class="w-1/12 flex justify-center items-center font-semibold text-lg">{{i+1}}</div>
           <div class="w-1/12 flex justify-center">
